@@ -21,9 +21,9 @@ locals {
 
 module "eks-blueprint-konnect-kic" {
   
-  source = "Kong/eks-blueprint-konnect-kic/aws"
-  version = "~> 1.0.1" 
-  
+  source = "/Users/daniella.freese@konghq.com/Projects/Kong/eks_blueprints/terraform-aws-eks-blueprint-konnect-kic"
+  # version = "~> 1.0.1"
+
   cluster_name      = var.eks_cluster_name
   cluster_endpoint  = data.aws_eks_cluster.eks.endpoint
   cluster_version   = data.aws_eks_cluster.eks.version

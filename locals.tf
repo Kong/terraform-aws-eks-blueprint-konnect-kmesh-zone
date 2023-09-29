@@ -55,11 +55,11 @@ locals {
       value = "KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE"
     },
     {
-      name = "kuma.controlPlane.secrets[0].Secret"
+      name  = "kuma.controlPlane.secrets[0].Secret"
       value = "cp-token"
     },
     {
-      name = "kuma.controlPlane.secrets[0].Key"
+      name  = "kuma.controlPlane.secrets[0].Key"
       value = "token"
     },
     {

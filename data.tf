@@ -4,7 +4,7 @@ data "aws_region" "current" {}
 
 data "kubernetes_secret" "external_secrets" {
   metadata {
-    name = "sh.helm.release.v1.external-secrets.v1"
+    name      = "sh.helm.release.v1.external-secrets.v1"
     namespace = "external-secrets"
   }
 }

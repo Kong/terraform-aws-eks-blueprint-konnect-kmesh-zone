@@ -41,5 +41,3 @@ module "eks-blueprint-konnect-mink" {
     }
   }
 }
-
-

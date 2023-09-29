@@ -25,7 +25,7 @@ variable "key_secret_name" {
 }
 
 variable "telemetry_endpoint" {
-  type = string
+  type        = string
   description = "value of telemetry_endpoint from Konnect control plane"
 }
 

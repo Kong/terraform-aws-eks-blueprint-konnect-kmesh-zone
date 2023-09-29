@@ -15,12 +15,12 @@ locals {
 
   apiHostname = "${var.konnect_region}.kic.api.konghq.com"
 
-  eks_oidc_issuer            = trimprefix(data.aws_eks_cluster.eks.identity[0].oidc[0].issuer, "https://")
-  oidc_provider_arn          = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${local.eks_oidc_issuer}"
+  eks_oidc_issuer   = trimprefix(data.aws_eks_cluster.eks.identity[0].oidc[0].issuer, "https://")
+  oidc_provider_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${local.eks_oidc_issuer}"
 }
 
 module "eks-blueprint-konnect-kic" {
-  
+
   source = "/Users/daniella.freese@konghq.com/Projects/Kong/eks_blueprints/terraform-aws-eks-blueprint-konnect-kic"
   # version = "~> 1.0.1"
 
@@ -29,7 +29,7 @@ module "eks-blueprint-konnect-kic" {
   cluster_version   = data.aws_eks_cluster.eks.version
   oidc_provider_arn = local.oidc_provider_arn
 
-  tags                    = local.tags
+  tags = local.tags
 
   kong_config = {
     # chart_version    = "0.3.0"

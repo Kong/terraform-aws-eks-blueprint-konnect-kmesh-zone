@@ -42,4 +42,3 @@ provider "kubectl" {
     args = ["eks", "get-token", "--cluster-name", var.eks_cluster_name]
   }
 }
-

@@ -85,10 +85,10 @@ module "external_secret_irsa" {
   ))
   override_policy_documents = lookup(var.kong_config, "override_policy_documents", [])
   policy_statements         = lookup(var.kong_config, "policy_statements", [])
-  policy_name               = try(var.kong_config.policy_name, "external-secrets-irsa-policy")
+  policy_name               = try(var.kong_config.policy_name, "external-secrets-irsa-konnect-kmesh-policy")
   policy_name_use_prefix    = try(var.kong_config.policy_name_use_prefix, true)
   policy_path               = try(var.kong_config.policy_path, null)
-  policy_description        = try(var.kong_config.policy_description, "IAM Policy for Kong")
+  policy_description        = try(var.kong_config.policy_description, "IAM Policy for Konnect Kong Mesh Zone - ${local.zone}")
 
   oidc_providers = {
     this = {

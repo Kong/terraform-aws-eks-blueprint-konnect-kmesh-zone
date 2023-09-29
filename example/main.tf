@@ -13,8 +13,8 @@ locals {
   }
 
   konnect_kds_global_address = "grpcs://${var.konnect_region}.mesh.sync.konghq.com:443"
-  eks_oidc_issuer   = trimprefix(data.aws_eks_cluster.eks.identity[0].oidc[0].issuer, "https://")
-  oidc_provider_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${local.eks_oidc_issuer}"
+  eks_oidc_issuer            = trimprefix(data.aws_eks_cluster.eks.identity[0].oidc[0].issuer, "https://")
+  oidc_provider_arn          = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${local.eks_oidc_issuer}"
 }
 
 module "eks-blueprint-konnect-mink" {
@@ -36,5 +36,10 @@ module "eks-blueprint-konnect-mink" {
     kmesh_egress_enabled                   = true
     kmesh_k8sServices_experimental_enabled = true
     cp_token_aws_secret_name               = var.cp_token_aws_secret_name
+    add_ons = {
+      enable_external_secret_store = true
+    }
   }
 }
+
+

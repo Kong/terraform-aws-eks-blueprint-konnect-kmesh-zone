@@ -5,8 +5,6 @@ locals {
   cluster_name      = time_sleep.this.triggers["cluster_name"]
   oidc_provider_arn = time_sleep.this.triggers["oidc_provider_arn"]
 
-  enable_external_secrets = try(var.add_ons.enable_external_secrets, true)
-
   # https://kong.github.io/kong-mesh-charts
   name             = try(var.kong_config.name, "kong-mesh")
   namespace        = try(var.kong_config.namespace, "kong-mesh-system")
@@ -24,8 +22,10 @@ locals {
   deltaKds_enabled         = try(var.kong_config.deltaKds_enabled, true)
   cp_token_aws_secret_name = try(var.kong_config.cp_token_aws_secret_name, null)
 
+  enable_external_secrets = try(var.kong_config.add_ons.enable_external_secrets, true)
+
   external_secret_service_account_name                = "external-secret-irsa"
-  external_secrets_irsa_role_name                     = "external-secret-irsa"
+  external_secrets_irsa_role_name                     = "external-secret-irsa-konnect-kmesh"
   external_secrets_irsa_role_name_use_prefix          = true
   external_secrets_irsa_role_path                     = "/"
   external_secrets_irsa_role_permissions_boundary_arn = null

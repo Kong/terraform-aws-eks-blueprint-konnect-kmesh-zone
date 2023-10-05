@@ -10,7 +10,7 @@ Mesh Manager in Kong Konnect allows you to create, manage, and view your Kong Me
 
 Mesh Manager is ideal for organizations who want to have one or more global control planes that allow you to run your mesh deployments across multiple zones. You can run a mix of Kubernetes and Universal zones. Your mesh deployment environments can include multiple isolated meshes for multi-tenancy, with workloads running in different regions, on different clouds, or in different data-centers.
 
-This EKS Blueprint will create a Kong Mesh Zone Control Plane integrated with Mesh Manager in Kong Konnect.
+This EKS Blueprint will deploy a Kong Mesh Zone Control Plane integrated with Mesh Manager in Kong Konnect.
 
 ## Helm Chart
 

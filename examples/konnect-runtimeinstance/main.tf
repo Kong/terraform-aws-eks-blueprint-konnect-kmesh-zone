@@ -36,7 +36,7 @@ module "eks-blueprint-konnect-runtimeinstance" {
     key_secret_name  = var.key_secret_name
 
     add_ons = {
-      enable_external_secrets = true
+      enable_external_secrets = false
     }
   }
 }

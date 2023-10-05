@@ -36,8 +36,9 @@ module "eks-blueprint-konnect-mink" {
     kmesh_egress_enabled                   = true
     kmesh_k8sServices_experimental_enabled = true
     cp_token_aws_secret_name               = var.cp_token_aws_secret_name
+
     add_ons = {
-      enable_external_secrets = false
+      enable_external_secrets = true
     }
 
     values = [templatefile("${path.module}/kong_mesh_values.yaml", {})]

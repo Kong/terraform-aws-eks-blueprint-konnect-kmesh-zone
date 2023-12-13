@@ -28,6 +28,7 @@ module "eks-blueprint-konnect-mink" {
 
   tags = local.tags
 
+  # REQUIRED CONFIGURATION
   kong_config = {
     zone                                   = var.zone_name
     cpId                                   = var.konnect_mesh_global_cp_id
@@ -40,7 +41,7 @@ module "eks-blueprint-konnect-mink" {
     add_ons = {
       enable_external_secrets = true
     }
-
+    # OPTIONAL CONFIGURATION
     values = [templatefile("${path.module}/kong_mesh_values.yaml", {})]
   }
 }

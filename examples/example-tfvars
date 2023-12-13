@@ -1,0 +1,11 @@
+## konnect vars
+# konnect_region            = "FILL ME"
+
+## mesh manager vars
+# konnect_mesh_global_cp_id = "FILL ME"
+# zone_name                 = "FILL ME"
+# cp_token_aws_secret_name  = "FILL ME"
+
+## eks cluster vars
+# eks_cluster_name          = "FILL ME"
+# aws_region                = "FILL ME"

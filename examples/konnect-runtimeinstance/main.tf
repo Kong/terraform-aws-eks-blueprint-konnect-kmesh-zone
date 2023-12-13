@@ -14,12 +14,12 @@ locals {
   telemetry_dns = replace(var.telemetry_endpoint, "https://", "")
   cluster_dns   = replace(var.cluster_endpoint, "https://", "")
 
-  eks_oidc_issuer            = trimprefix(data.aws_eks_cluster.eks.identity[0].oidc[0].issuer, "https://")
-  oidc_provider_arn          = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${local.eks_oidc_issuer}"
+  eks_oidc_issuer   = trimprefix(data.aws_eks_cluster.eks.identity[0].oidc[0].issuer, "https://")
+  oidc_provider_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${local.eks_oidc_issuer}"
 }
 
 module "eks-blueprint-konnect-runtimeinstance" {
-  
+
   source = "github.com/Kong/terraform-aws-eks-blueprint-konnect-runtime-instance?ref=enable_external_secrets"
 
   cluster_name      = var.eks_cluster_name
@@ -27,7 +27,7 @@ module "eks-blueprint-konnect-runtimeinstance" {
   cluster_version   = data.aws_eks_cluster.eks.version
   oidc_provider_arn = local.oidc_provider_arn
 
-  tags                    = local.tags
+  tags = local.tags
 
   kong_config = {
     cluster_dns      = local.cluster_dns

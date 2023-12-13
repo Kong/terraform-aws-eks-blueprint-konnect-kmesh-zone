@@ -1,6 +1,4 @@
 kuma:
-  global:
-    image:
-      registry: "docker.io/kong"
-      tag: 2.4.1
+  controlPlane:
+    replicas: 3
       
